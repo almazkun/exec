@@ -6,7 +6,7 @@ from logging import getLogger
 logger = getLogger(__name__)
 
 HOST = os.environ.get("HOST")
-USER = os.environ.get("USER")
+USER = os.environ.get("USER_NAME")
 KEY_FILENAME = os.environ.get("KEY_FILENAME")
 
 
@@ -15,6 +15,7 @@ class SSHClient:
         self.host = host
         self.user = user
         self.key_filename = key_filename
+        print(f"SSHClient.__init__(): {self.host}, {self.user}, {self.key_filename}")
 
     def connection(self) -> Connection:
         logger.info(
